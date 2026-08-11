@@ -1,0 +1,45 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { FOOTER } from "@/lib/data";
+
+const variantClass = (variant: string) => {
+  if (variant === "outline") return " footer-word--outline";
+  if (variant === "fill--accent") return " footer-word--fill";
+  return "";
+};
+
+export default function Footer() {
+  const [year, setYear] = useState<number | null>(null);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
+  return (
+    <footer className="footer">
+      <div className="footer-top">
+        {FOOTER.words.map((word, i) => (
+          <span key={i} className={`footer-word${variantClass(word.variant)}`}>
+            {word.text}
+          </span>
+        ))}
+      </div>
+      <div className="footer-bottom">
+        <span>
+          © {year ?? ""} {FOOTER.entity}
+        </span>
+        <div className="footer-links">
+          {FOOTER.links.map((link) => (
+            <a key={link.label} href={link.href}>
+              {link.label}
+            </a>
+          ))}
+        </div>
+        <a href="#top" className="footer-back">
+          {FOOTER.back}
+        </a>
+      </div>
+    </footer>
+  );
+}
