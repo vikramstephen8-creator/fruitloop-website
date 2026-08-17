@@ -28,6 +28,13 @@ export default function Hero() {
         <span className="loop-o loop-o1" />
         <span className="loop-o loop-o2" />
         <span className="loop-o loop-o3" />
+        <span className="loop-o loop-o4" />
+        <span className="loop-o loop-o5" />
+        <span className="loop-o loop-o6" />
+        <span className="loop-o loop-o7" />
+        <span className="loop-o loop-o8" />
+        <span className="loop-o loop-o9" />
+        <span className="loop-o loop-o10" />
       </div>
 
       <div className="hero-inner">
