@@ -16,7 +16,6 @@ export default function Contact() {
         <span className="sl sl--lime sl-md sl-tr sl-d1" />
       </div>
       <div className="contact-inner">
-        <span className="section-eyebrow">{CONTACT.eyebrow}</span>
         <h2 className="contact-title">
           {CONTACT.title[0]}
           <br />

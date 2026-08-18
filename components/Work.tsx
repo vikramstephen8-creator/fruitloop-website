@@ -21,7 +21,6 @@ export default function Work() {
         <span className="sl sl--lime sl-sm sl-ml sl-d7" />
       </div>
       <div className="work-head">
-        <span className="section-eyebrow">{WORK.eyebrow}</span>
         <h2 className="work-title">
           {WORK.title[0]}
           <br />

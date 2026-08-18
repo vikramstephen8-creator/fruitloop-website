@@ -20,7 +20,6 @@ export default function Reel() {
         <span className="sl sl--lime sl-sm sl-tl sl-d4" />
         <span className="sl sl--yellow sl-md sl-br sl-d1" />
       </div>
-      <span className="section-eyebrow">{REEL.eyebrow}</span>
       <h2 className="reel-title">{REEL.title}</h2>
       <p className="reel-sub">{REEL.sub}</p>
 

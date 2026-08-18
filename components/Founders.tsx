@@ -15,7 +15,6 @@ export default function Founders() {
         <span className="sl sl--orange sl-sm sl-bl sl-d5" />
         <span className="sl sl--lime sl-md sl-mr sl-d8" />
       </div>
-      <span className="section-eyebrow">{FOUNDERS.eyebrow}</span>
       <h2 className="founders-title">
         {FOUNDERS.title[0]}
         <br />

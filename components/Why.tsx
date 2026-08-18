@@ -16,7 +16,6 @@ export default function Why() {
         <span className="sl sl--lime sl-md sl-ml sl-d7" />
       </div>
       <div className="why-inner">
-        <span className="section-eyebrow">{WHY.eyebrow}</span>
         <h2 className="why-title">
           {WHY.title[0]}
           <br />

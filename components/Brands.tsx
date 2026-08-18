@@ -18,9 +18,6 @@ export default function Brands() {
           <span className="sl sl--cream sl-md sl-bl sl-d4" />
           <span className="sl sl--lime sl-sm sl-tl sl-d7" />
         </div>
-        <span className="section-eyebrow section-eyebrow--light">
-          {BRANDS.eyebrow}
-        </span>
         <h2 className="brands-title">
           {BRANDS.title[0]}
           <br />

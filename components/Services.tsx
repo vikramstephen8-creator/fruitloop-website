@@ -17,9 +17,6 @@ export default function Services() {
         <span className="sl sl--cream sl-lg sl-br sl-d2" />
       </div>
       <div className="services-head">
-        <span className="section-eyebrow section-eyebrow--light">
-          {SERVICES.eyebrow}
-        </span>
         <h2 className="services-title">
           {SERVICES.title[0]}
           <br />

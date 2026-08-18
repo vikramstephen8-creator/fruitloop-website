@@ -15,7 +15,6 @@ export default function Choose() {
         <span className="sl sl--ink sl-sm sl-br sl-d6" />
       </div>
       <div className="choose-panel">
-        <span className="section-eyebrow">{CHOOSE.eyebrow}</span>
         <h2 className="choose-title">
           {CHOOSE.title[0]}
           <br />
