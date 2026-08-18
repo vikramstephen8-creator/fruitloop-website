@@ -9,9 +9,16 @@ export default function Reel() {
   return (
     <section className="reel has-loops" id="reel">
       <div className="section-loops" aria-hidden="true">
-        <span className="sl sl--yellow sl-md sl-tr sl-d2" />
-        <span className="sl sl--orange sl-sm sl-bl sl-d5" />
-        <span className="sl sl--lime sl-lg sl-tl sl-d8" />
+        <span className="sl sl--yellow sl-lg sl-tl sl-d1" />
+        <span className="sl sl--orange sl-sm sl-br sl-d4" />
+        <span className="sl sl--lime sl-md sl-tr sl-d7" />
+        <span className="sl sl--yellow sl-xl sl-ml sl-d2" />
+        <span className="sl sl--orange-d sl-sm sl-bc sl-d5" />
+        <span className="sl sl--lime sl-md sl-mr sl-d8" />
+        <span className="sl sl--yellow sl-lg sl-bl sl-d3" />
+        <span className="sl sl--orange sl-md sl-tc sl-d6" />
+        <span className="sl sl--lime sl-sm sl-tl sl-d4" />
+        <span className="sl sl--yellow sl-md sl-br sl-d1" />
       </div>
       <span className="section-eyebrow">{REEL.eyebrow}</span>
       <h2 className="reel-title">{REEL.title}</h2>
