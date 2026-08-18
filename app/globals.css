@@ -492,7 +492,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   cursor: pointer;
   background: var(--ink);
 }
-.reel-poster { width: 100%; height: 100%; object-fit: cover; opacity: 0.72; transition: transform .6s var(--ease), opacity .4s; }
+.reel-poster { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; opacity: 0.72; transition: transform .6s var(--ease), opacity .4s; }
 .reel-frame:hover .reel-poster { transform: scale(1.04); opacity: 0.85; }
 .reel-overlay {
   position: absolute; inset: 0;
