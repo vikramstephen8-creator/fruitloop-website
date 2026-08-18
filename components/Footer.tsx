@@ -17,7 +17,12 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="footer">
+    <footer className="footer has-loops">
+      <div className="section-loops" aria-hidden="true">
+        <span className="sl sl--cream sl-lg sl-tl sl-d3" />
+        <span className="sl sl--cream sl-sm sl-br sl-d6" />
+        <span className="sl sl--yellow sl-md sl-bl sl-d1" />
+      </div>
       <div className="footer-top">
         {FOOTER.words.map((word, i) => (
           <span key={i} className={`footer-word${variantClass(word.variant)}`}>
