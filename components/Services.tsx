@@ -9,7 +9,13 @@ export default function Services() {
   useReveal(ref);
 
   return (
-    <section className="services" id="services" ref={ref}>
+    <section className="services has-loops" id="services" ref={ref}>
+      <div className="section-loops" aria-hidden="true">
+        <span className="sl sl--cream sl-xl sl-tr sl-d3" />
+        <span className="sl sl--yellow sl-sm sl-bl sl-d6" />
+        <span className="sl sl--lime sl-md sl-tl sl-d8" />
+        <span className="sl sl--cream sl-lg sl-br sl-d2" />
+      </div>
       <div className="services-head">
         <span className="section-eyebrow section-eyebrow--light">
           {SERVICES.eyebrow}

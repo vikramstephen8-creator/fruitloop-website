@@ -113,6 +113,64 @@ ul { margin: 0; padding: 0; list-style: none; }
 @keyframes revealUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ============================================================
+   SECTION LOOPS — decorative "O" shapes reused across sections
+   ============================================================ */
+.has-loops { position: relative; overflow: hidden; }
+.section-loops {
+  position: absolute; inset: 0; z-index: 0;
+  pointer-events: none;
+}
+.sl { position: absolute; border-radius: 50%; opacity: 0.14; }
+.sl--yellow  { border-color: var(--yellow); }
+.sl--orange  { border-color: var(--orange); }
+.sl--orange-d { border-color: var(--orange-deep); }
+.sl--lime    { border-color: var(--lime); }
+.sl--ink     { border-color: var(--ink); }
+.sl--cream   { border-color: var(--cream); }
+
+/* sizes */
+.sl-sm  { width: 20px; height: 20px; border-width: 6px; }
+.sl-md  { width: 36px; height: 36px; border-width: 8px; }
+.sl-lg  { width: 54px; height: 54px; border-width: 10px; }
+.sl-xl  { width: 72px; height: 72px; border-width: 12px; }
+
+/* positions */
+.sl-tl  { top: 8%;  left: 4%; }
+.sl-tc  { top: 6%;  left: 50%; }
+.sl-tr  { top: 10%; right: 6%; }
+.sl-ml  { top: 45%; left: 2%; }
+.sl-mr  { top: 50%; right: 3%; }
+.sl-bl  { bottom: 10%; left: 8%; }
+.sl-bc  { bottom: 8%;  left: 50%; }
+.sl-br  { bottom: 12%; right: 5%; }
+
+/* drift animations — varied durations + delays */
+.sl-d1 { animation: float 7s   ease-in-out infinite; }
+.sl-d2 { animation: float 6s   ease-in-out infinite .4s; }
+.sl-d3 { animation: float 8s   ease-in-out infinite .9s; }
+.sl-d4 { animation: float 5.5s ease-in-out infinite 1.3s; }
+.sl-d5 { animation: float 7.5s ease-in-out infinite 1.8s; }
+.sl-d6 { animation: float 6.5s ease-in-out infinite .2s; }
+.sl-d7 { animation: float 8.5s ease-in-out infinite 1.6s; }
+.sl-d8 { animation: float 5s   ease-in-out infinite .7s; }
+
+/* light sections: loops slightly more visible */
+.why .sl,
+.reel .sl,
+.work .sl,
+.founders .sl,
+.contact .sl { opacity: 0.18; }
+
+/* dark sections: brighter, translucent cream loops */
+.services .sl--cream,
+.brands .sl--cream { opacity: 0.10; }
+.services .sl--yellow,
+.brands .sl--yellow { opacity: 0.22; }
+
+/* choose: on orange bg, ink loops */
+.choose .sl--ink { opacity: 0.10; }
+
+/* ============================================================
    CURSOR + GRAIN
    ============================================================ */
 .loop-cursor {

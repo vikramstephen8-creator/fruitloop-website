@@ -12,7 +12,12 @@ export default function Brands() {
 
   return (
     <>
-      <section className="brands" id="brands" ref={ref}>
+      <section className="brands has-loops" id="brands" ref={ref}>
+        <div className="section-loops" aria-hidden="true">
+          <span className="sl sl--yellow sl-xl sl-tr sl-d1" />
+          <span className="sl sl--cream sl-md sl-bl sl-d4" />
+          <span className="sl sl--lime sl-sm sl-tl sl-d7" />
+        </div>
         <span className="section-eyebrow section-eyebrow--light">
           {BRANDS.eyebrow}
         </span>

@@ -9,7 +9,12 @@ export default function Contact() {
   useReveal(ref);
 
   return (
-    <section className="contact" id="contact" ref={ref}>
+    <section className="contact has-loops" id="contact" ref={ref}>
+      <div className="section-loops" aria-hidden="true">
+        <span className="sl sl--yellow sl-lg sl-tl sl-d3" />
+        <span className="sl sl--orange-d sl-sm sl-br sl-d6" />
+        <span className="sl sl--lime sl-md sl-tr sl-d1" />
+      </div>
       <div className="contact-inner">
         <span className="section-eyebrow">{CONTACT.eyebrow}</span>
         <h2 className="contact-title">

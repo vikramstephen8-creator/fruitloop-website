@@ -9,7 +9,12 @@ export default function Why() {
   useReveal(ref);
 
   return (
-    <section className="why" id="why" ref={ref}>
+    <section className="why has-loops" id="why" ref={ref}>
+      <div className="section-loops" aria-hidden="true">
+        <span className="sl sl--yellow sl-lg sl-tl sl-d1" />
+        <span className="sl sl--orange sl-sm sl-br sl-d4" />
+        <span className="sl sl--lime sl-md sl-ml sl-d7" />
+      </div>
       <div className="why-inner">
         <span className="section-eyebrow">{WHY.eyebrow}</span>
         <h2 className="why-title">

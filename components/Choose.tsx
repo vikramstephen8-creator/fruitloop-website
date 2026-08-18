@@ -9,7 +9,11 @@ export default function Choose() {
   useReveal(ref);
 
   return (
-    <section className="choose" ref={ref}>
+    <section className="choose has-loops" ref={ref}>
+      <div className="section-loops" aria-hidden="true">
+        <span className="sl sl--ink sl-lg sl-tl sl-d3" />
+        <span className="sl sl--ink sl-sm sl-br sl-d6" />
+      </div>
       <div className="choose-panel">
         <span className="section-eyebrow">{CHOOSE.eyebrow}</span>
         <h2 className="choose-title">
