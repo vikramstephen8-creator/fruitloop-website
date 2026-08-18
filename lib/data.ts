@@ -90,7 +90,7 @@ export const REEL = {
   title: "See us in motion.",
   sub: "Drop your latest showreel here — this frame is wired up and ready for it.",
   poster: "/assets/hero/cinematic-2.jpg",
-  note: "To go live: drop an .mp4 into /public/assets/reel/showreel.mp4 and uncomment the <source> inside Reel.tsx, or swap the poster for your own frame.",
+  note: "Showreel wired and ready — click play to watch.",
 };
 
 export const WORK_FILTERS = [

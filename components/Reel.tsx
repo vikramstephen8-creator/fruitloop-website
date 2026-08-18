@@ -63,7 +63,7 @@ export default function Reel() {
           poster={REEL.poster}
           style={{ display: "none" }}
         >
-          {/* <source src="/assets/reel/showreel.mp4" type="video/mp4" /> */}
+          <source src="/assets/reel/Showreel.mp4" type="video/mp4" />
         </video>
       </div>
       <p className="reel-note">{REEL.note}</p>
