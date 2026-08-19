@@ -19,6 +19,24 @@ export function useReveal(containerRef: RefObject<HTMLElement | null>) {
     const revealEls = container.querySelectorAll<HTMLElement>(".reveal-up");
     const fadeEls = container.querySelectorAll<HTMLElement>(FADE_TARGETS.join(","));
 
+    const revealAll = () => {
+      revealEls.forEach((el) => el.classList.add("is-visible"));
+      fadeEls.forEach((el) => {
+        el.style.opacity = "1";
+        el.style.transform = "translateY(0)";
+      });
+    };
+
+    if (typeof IntersectionObserver === "undefined") {
+      revealAll();
+      return;
+    }
+
+    revealEls.forEach((el) => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(28px)";
+    });
+
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
