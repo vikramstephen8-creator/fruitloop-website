@@ -109,21 +109,22 @@ export type WorkItem = {
   cat: "ad" | "food" | "hospitality";
   title: string;
   img: string;
+  href?: string;
 };
 
 export const WORK_ITEMS: WorkItem[] = [
-  { cat: "ad", title: "Product Launch Film", img: "/assets/work/ad-campaign-1.jpg" },
-  { cat: "ad", title: "Brand Hero Shot", img: "/assets/work/ad-campaign-2.jpg" },
-  { cat: "ad", title: "Lifestyle Story", img: "/assets/work/ad-campaign-3.jpg" },
-  { cat: "ad", title: "Colour Campaign", img: "/assets/work/ad-campaign-4.jpg" },
-  { cat: "food", title: "Menu Launch", img: "/assets/work/food-1.jpg" },
-  { cat: "food", title: "Dessert Feature", img: "/assets/work/food-2.jpg" },
-  { cat: "food", title: "Bakery Content", img: "/assets/work/food-3.jpg" },
-  { cat: "food", title: "Cafe Brand Film", img: "/assets/work/food-4.jpg" },
-  { cat: "hospitality", title: "Resort High Tea", img: "/assets/work/hospitality-1.jpg" },
-  { cat: "hospitality", title: "Spa & Wellness", img: "/assets/work/hospitality-2.jpg" },
-  { cat: "hospitality", title: "Taj Theog Resort & Spa", img: "/assets/work/hospitality-3.jpg" },
-  { cat: "hospitality", title: "Bar Menu Film", img: "/assets/work/hospitality-4.jpg" },
+  { cat: "ad", title: "Product Launch Film", img: "/assets/work/ad-campaign-1.jpg", href: "https://example.com/case-study/product-launch-film" },
+  { cat: "ad", title: "Brand Hero Shot", img: "/assets/work/ad-campaign-2.jpg", href: "https://example.com/case-study/brand-hero-shot" },
+  { cat: "ad", title: "Lifestyle Story", img: "/assets/work/ad-campaign-3.jpg", href: "https://example.com/case-study/lifestyle-story" },
+  { cat: "ad", title: "Colour Campaign", img: "/assets/work/ad-campaign-4.jpg", href: "https://example.com/case-study/colour-campaign" },
+  { cat: "food", title: "Menu Launch", img: "/assets/work/food-1.jpg", href: "https://example.com/case-study/menu-launch" },
+  { cat: "food", title: "Dessert Feature", img: "/assets/work/food-2.jpg", href: "https://example.com/case-study/dessert-feature" },
+  { cat: "food", title: "Bakery Content", img: "/assets/work/food-3.jpg", href: "https://example.com/case-study/bakery-content" },
+  { cat: "food", title: "Cafe Brand Film", img: "/assets/work/food-4.jpg", href: "https://example.com/case-study/cafe-brand-film" },
+  { cat: "hospitality", title: "Resort High Tea", img: "/assets/work/hospitality-1.jpg", href: "https://example.com/case-study/resort-high-tea" },
+  { cat: "hospitality", title: "Spa & Wellness", img: "/assets/work/hospitality-2.jpg", href: "https://example.com/case-study/spa-wellness" },
+  { cat: "hospitality", title: "Taj Theog Resort & Spa", img: "/assets/work/hospitality-3.jpg", href: "https://example.com/case-study/taj-theog" },
+  { cat: "hospitality", title: "Bar Menu Film", img: "/assets/work/hospitality-4.jpg", href: "https://example.com/case-study/bar-menu-film" },
 ];
 
 export const CHOOSE = {

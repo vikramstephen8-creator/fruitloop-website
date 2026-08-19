@@ -54,21 +54,24 @@ export default function Work() {
         role="tabpanel"
         aria-label="Work items"
       >
-        {WORK_ITEMS.map((item) => (
-          <figure
-            key={item.title}
-            className={`work-item${active !== "all" && item.cat !== active ? " is-hidden" : ""}`}
-            data-cat={item.cat}
-          >
-            <div className="peel-frame">
-              <img src={item.img} alt={`Work frame — ${item.title}`} loading="lazy" />
-            </div>
-            <figcaption>
-              <span>{catLabel(item.cat)}</span>
-              {item.title}
-            </figcaption>
-          </figure>
-        ))}
+        {WORK_ITEMS.map((item) => {
+          const content = (
+            <figure
+              key={item.title}
+              className={`work-item${active !== "all" && item.cat !== active ? " is-hidden" : ""}`}
+              data-cat={item.cat}
+            >
+              <div className="peel-frame">
+                <img src={item.img} alt={`Work frame — ${item.title}`} loading="lazy" />
+              </div>
+              <figcaption>
+                <span>{catLabel(item.cat)}</span>
+                {item.title}
+              </figcaption>
+            </figure>
+          );
+          return item.href ? <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer">{content}</a> : content;
+        })}
       </div>
     </section>
   );
