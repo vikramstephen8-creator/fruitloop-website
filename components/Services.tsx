@@ -4,7 +4,10 @@ import { useRef, type CSSProperties } from "react";
 import { SERVICES } from "@/lib/data";
 import { useReveal } from "@/hooks/useReveal";
 
-export default function Services() {
+export type ServiceItem = { num: string; title: string; body: string };
+
+export default function Services({ items }: { items?: ServiceItem[] }) {
+  const list = items ?? SERVICES.items;
   const ref = useRef<HTMLElement>(null);
   useReveal(ref);
 
@@ -25,7 +28,7 @@ export default function Services() {
       </div>
 
       <div className="services-grid">
-        {SERVICES.items.map((service, i) => (
+        {list.map((service, i) => (
           <article
             key={service.num}
             className="service-card"

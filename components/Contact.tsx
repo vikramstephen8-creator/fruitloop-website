@@ -4,7 +4,14 @@ import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { CONTACT, SITE } from "@/lib/data";
 
-export default function Contact() {
+export type ContactSettings = {
+  email: string;
+  phones: { label: string; value: string; href: string }[];
+};
+
+export default function Contact({ settings }: { settings?: ContactSettings }) {
+  const email = settings?.email ?? SITE.email;
+  const phones = settings?.phones ?? SITE.phones;
   const ref = useRef<HTMLElement>(null);
   useReveal(ref);
 
@@ -24,11 +31,11 @@ export default function Contact() {
         <p className="contact-sub">{CONTACT.sub}</p>
 
         <div className="contact-grid">
-          <a href={`mailto:${SITE.email}`} className="contact-link">
+          <a href={`mailto:${email}`} className="contact-link">
             <span className="contact-label">Email</span>
-            <span className="contact-value">{SITE.email}</span>
+            <span className="contact-value">{email}</span>
           </a>
-          {SITE.phones.map((phone) => (
+          {phones.map((phone) => (
             <a key={phone.href} href={phone.href} className="contact-link">
               <span className="contact-label">{phone.label}</span>
               <span className="contact-value">{phone.value}</span>

@@ -4,20 +4,32 @@ import { Fragment, useRef, type ReactNode, type CSSProperties } from "react";
 import { HERO } from "@/lib/data";
 import { useReveal } from "@/hooks/useReveal";
 
-export default function Hero() {
+export type HeroSlideItem = {
+  headline: string;
+  subheadline: string | null;
+  ctaText: string | null;
+  ctaHref: string | null;
+};
+
+export default function Hero({ slide }: { slide?: HeroSlideItem }) {
   const ref = useRef<HTMLElement>(null);
   useReveal(ref);
 
-  const winkIndex = HERO.sub.indexOf("(couldn't resist)");
-  let sub: ReactNode = HERO.sub;
-  if (winkIndex !== -1) {
-    sub = (
-      <>
-        {HERO.sub.slice(0, winkIndex)}
-        <span className="wink">(couldn't resist)</span>
-        {HERO.sub.slice(winkIndex + "(couldn't resist)".length)}
-      </>
-    );
+  let sub: ReactNode;
+  if (slide) {
+    sub = slide.subheadline ?? HERO.sub;
+  } else {
+    const winkIndex = HERO.sub.indexOf("(couldn't resist)");
+    sub = HERO.sub;
+    if (winkIndex !== -1) {
+      sub = (
+        <>
+          {HERO.sub.slice(0, winkIndex)}
+          <span className="wink">(couldn't resist)</span>
+          {HERO.sub.slice(winkIndex + "(couldn't resist)".length)}
+        </>
+      );
+    }
   }
 
   return (
@@ -40,23 +52,29 @@ export default function Hero() {
       <div className="hero-inner">
         <p className="eyebrow reveal-up">{HERO.eyebrow}</p>
         <h1 className="hero-title">
-          {HERO.lines.map((line, i) =>
-            line.style === "em" ? (
-              <span
-                key={i}
-                className="line reveal-up"
-                style={{ "--d": i + 1 } as CSSProperties}
-              >
-                <em>{line.text}</em>
-              </span>
-            ) : (
-              <span
-                key={i}
-                className="line reveal-up"
-                style={{ "--d": i + 1 } as CSSProperties}
-              >
-                {line.text}
-              </span>
+          {slide ? (
+            <span className="line reveal-up" style={{ "--d": 1 } as CSSProperties}>
+              {slide.headline}
+            </span>
+          ) : (
+            HERO.lines.map((line, i) =>
+              line.style === "em" ? (
+                <span
+                  key={i}
+                  className="line reveal-up"
+                  style={{ "--d": i + 1 } as CSSProperties}
+                >
+                  <em>{line.text}</em>
+                </span>
+              ) : (
+                <span
+                  key={i}
+                  className="line reveal-up"
+                  style={{ "--d": i + 1 } as CSSProperties}
+                >
+                  {line.text}
+                </span>
+              )
             )
           )}
         </h1>
@@ -64,8 +82,8 @@ export default function Hero() {
           {sub}
         </p>
         <div className="hero-actions reveal-up" style={{ "--d": 5 } as CSSProperties}>
-          <a href="#contact" className="btn btn-primary">
-            <span>{HERO.ctaPrimary}</span>
+          <a href={slide?.ctaHref ?? "#contact"} className="btn btn-primary">
+            <span>{slide?.ctaText ?? HERO.ctaPrimary}</span>
           </a>
           <a href="#reel" className="btn btn-ghost">
             <span className="play-dot" /> {HERO.ctaGhost}

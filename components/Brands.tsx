@@ -4,11 +4,13 @@ import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { BRANDS } from "@/lib/data";
 
-export default function Brands() {
+export type BrandLogo = { id: string; name: string; logoUrl: string };
+
+export default function Brands({ logos }: { logos?: BrandLogo[] }) {
   const ref = useRef<HTMLElement>(null);
   useReveal(ref);
 
-  const logos = Array.from({ length: BRANDS.logoCount }, (_, i) => i);
+  const logoIndexes = Array.from({ length: BRANDS.logoCount }, (_, i) => i);
 
   return (
     <>
@@ -27,14 +29,23 @@ export default function Brands() {
 
       <div className="logo-marquee" aria-label="Client and partner logos">
         <div className="logo-track">
-          {[...logos, ...logos].map((i, idx) => (
-            <img
-              key={idx}
-              src={`/assets/logos/logo-${String(i).padStart(2, "0")}.png`}
-              alt=""
-              loading="lazy"
-            />
-          ))}
+          {logos && logos.length > 0
+            ? [...logos, ...logos].map((brand, idx) => (
+                <img
+                  key={idx}
+                  src={brand.logoUrl}
+                  alt={brand.name || ""}
+                  loading="lazy"
+                />
+              ))
+            : [...logoIndexes, ...logoIndexes].map((i, idx) => (
+                <img
+                  key={idx}
+                  src={`/assets/logos/logo-${String(i).padStart(2, "0")}.png`}
+                  alt=""
+                  loading="lazy"
+                />
+              ))}
         </div>
       </div>
     </>

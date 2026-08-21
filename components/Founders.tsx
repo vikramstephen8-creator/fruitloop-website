@@ -4,7 +4,16 @@ import { useRef } from "react";
 import { useReveal } from "@/hooks/useReveal";
 import { FOUNDERS } from "@/lib/data";
 
-export default function Founders() {
+export type FounderPerson = {
+  name: string;
+  role: string;
+  bio: string;
+  photoUrl?: string | null;
+  photoClass?: string;
+};
+
+export default function Founders({ people }: { people?: FounderPerson[] }) {
+  const list: FounderPerson[] = people ?? FOUNDERS.people;
   const ref = useRef<HTMLElement>(null);
   useReveal(ref);
 
@@ -23,12 +32,22 @@ export default function Founders() {
       <p className="founders-sub">{FOUNDERS.sub}</p>
 
       <div className="founders-grid">
-        {FOUNDERS.people.map((person) => (
+        {list.map((person) => (
           <article className="founder-card" key={person.name}>
-            <div
-              className={`founder-photo ${person.photoClass}`}
-              aria-hidden="true"
-            />
+            {person.photoUrl ? (
+              <div className="founder-photo">
+                <img
+                  src={person.photoUrl}
+                  alt={`Portrait of ${person.name}`}
+                  loading="lazy"
+                />
+              </div>
+            ) : (
+              <div
+                className={`founder-photo ${person.photoClass ?? ""}`}
+                aria-hidden="true"
+              />
+            )}
             <h3>{person.name}</h3>
             <span className="founder-role">{person.role}</span>
             <p>{person.bio}</p>
