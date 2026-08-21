@@ -86,14 +86,16 @@ export default function CaseStudy({
                   className="work-item"
                   aria-label={`${rel.title} case study`}
                 >
-                  <div className="peel-frame">
-                    <img
-                      src={rel.posterUrlOptimized(800)}
-                      alt={`Work frame — ${rel.title}`}
-                      loading="lazy"
-                    />
-                  </div>
-                  <figcaption>{rel.title}</figcaption>
+                  <figure>
+                    <div className="peel-frame">
+                      <img
+                        src={rel.posterUrlOptimized(800)}
+                        alt={`Work frame — ${rel.title}`}
+                        loading="lazy"
+                      />
+                    </div>
+                    <figcaption>{rel.title}</figcaption>
+                  </figure>
                 </Link>
               ))}
             </div>

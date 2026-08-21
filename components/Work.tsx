@@ -6,12 +6,20 @@ import { WORK, WORK_FILTERS, WORK_ITEMS } from "@/lib/data";
 import { useFilter } from "@/hooks/useFilter";
 import { useReveal } from "@/hooks/useReveal";
 
+export type WorkGridItem = {
+  slug: string;
+  title: string;
+  cat: "ad" | "food" | "hospitality";
+  img: string;
+};
+
 const catLabel = (cat: string) =>
   WORK_FILTERS.find((f) => f.key === cat)?.label ?? cat;
 
-export default function Work() {
+export default function Work({ items }: { items?: WorkGridItem[] }) {
+  const gridItems = items ?? WORK_ITEMS;
   const ref = useRef<HTMLElement>(null);
-  const { active, setActive } = useFilter(WORK_ITEMS);
+  const { active, setActive } = useFilter(gridItems);
   useReveal(ref);
 
   return (
@@ -55,13 +63,15 @@ export default function Work() {
         role="tabpanel"
         aria-label="Work items"
       >
-        {WORK_ITEMS.map((item) => {
-          const content = (
-            <figure
-              key={item.title}
-              className={`work-item${active !== "all" && item.cat !== active ? " is-hidden" : ""}`}
-              data-cat={item.cat}
-            >
+        {gridItems.map((item) => (
+          <Link
+            key={item.slug}
+            href={`/work/${item.slug}`}
+            className={`work-item${active !== "all" && item.cat !== active ? " is-hidden" : ""}`}
+            data-cat={item.cat}
+            aria-label={`${item.title} case study`}
+          >
+            <figure>
               <div className="peel-frame">
                 <img src={item.img} alt={`Work frame — ${item.title}`} loading="lazy" />
               </div>
@@ -70,13 +80,8 @@ export default function Work() {
                 {item.title}
               </figcaption>
             </figure>
-          );
-          return (
-            <Link key={item.title} href={`/work/${item.slug}`} aria-label={`${item.title} case study`}>
-              {content}
-            </Link>
-          );
-        })}
+          </Link>
+        ))}
       </div>
     </section>
   );
