@@ -16,5 +16,12 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "typescript": "^7.0.2"
+  },
+  "devDependencies": {
+    "@supabase/supabase-js": "^2.112.3",
+    "@types/mime-types": "^3.0.1",
+    "dotenv": "^17.4.2",
+    "mime-types": "^3.0.2",
+    "tsx": "^4.23.12"
   }
 }
