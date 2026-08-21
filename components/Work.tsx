@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useRef } from "react";
 import { WORK, WORK_FILTERS, WORK_ITEMS } from "@/lib/data";
 import { useFilter } from "@/hooks/useFilter";
@@ -70,7 +71,11 @@ export default function Work() {
               </figcaption>
             </figure>
           );
-          return item.href ? <a key={item.title} href={item.href} target="_blank" rel="noopener noreferrer">{content}</a> : content;
+          return (
+            <Link key={item.title} href={`/work/${item.slug}`} aria-label={`${item.title} case study`}>
+              {content}
+            </Link>
+          );
         })}
       </div>
     </section>
