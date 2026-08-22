@@ -32,3 +32,8 @@ supabase/.temp/
 
 # Local Netlify folder
 .netlify
+
+# secrets — never commit
+CREDENTIALS*.md
+*.secret.md
+.netlify/
