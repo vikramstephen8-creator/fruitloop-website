@@ -13,8 +13,20 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-body"
 const spaceMono = Space_Mono({ subsets: ["latin"], weight: ["400", "700"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: "Fruitloop — Independent 360° Creative Agency",
   description: SITE.description,
+  openGraph: {
+    title: "Fruitloop — Independent 360° Creative Agency",
+    description: SITE.description,
+    type: "website",
+    // Branded card rendered by GET /api/og/home
+    images: [{ url: "/api/og/home", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/api/og/home"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

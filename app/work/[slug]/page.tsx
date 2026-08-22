@@ -28,7 +28,6 @@ export async function generateMetadata({
   const item = await getWorkItem(slug);
   if (!item) return {};
 
-  const transformed = transformWorkItem(item);
   return {
     title: `${item.title} — Fruitloop`,
     description:
@@ -37,7 +36,12 @@ export async function generateMetadata({
     openGraph: {
       title: `${item.title} — Fruitloop`,
       description: item.description ?? undefined,
-      images: [{ url: transformed.posterUrl }],
+      // Branded card rendered by GET /api/og/work/<slug>
+      images: [{ url: `/api/og/work/${slug}`, width: 1200, height: 630 }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      images: [`/api/og/work/${slug}`],
     },
   };
 }
