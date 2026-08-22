@@ -34,6 +34,7 @@ supabase/.temp/
 .netlify
 
 # secrets — never commit
+credentials/
 CREDENTIALS*.md
 *.secret.md
 .netlify/
