@@ -61,11 +61,29 @@ export default async function WorkDetailPage({
     .slice(0, 3)
     .map((peer: WorkItem) => transformWorkItem(peer));
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    headline: item.title,
+    description: item.description ?? undefined,
+    image: `/api/og/work/${slug}`,
+    datePublished: item.published_at ?? undefined,
+    genre: catLabel(item.category),
+    author: { "@type": "Organization", name: "Fruitloop" },
+    publisher: { "@type": "Organization", name: "Fruitloop" },
+  };
+
   return (
-    <CaseStudy
-      item={transformWorkItem(item)}
-      categoryLabel={catLabel(item.category)}
-      related={related}
-    />
+    <>
+      <CaseStudy
+        item={transformWorkItem(item)}
+        categoryLabel={catLabel(item.category)}
+        related={related}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+    </>
   );
 }

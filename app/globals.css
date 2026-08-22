@@ -44,6 +44,7 @@ h1, h2, h3, p, figure { margin: 0; }
 button { font: inherit; cursor: pointer; }
 ul { margin: 0; padding: 0; list-style: none; }
 ::selection { background: var(--ink); color: var(--yellow); }
+:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

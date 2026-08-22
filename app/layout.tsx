@@ -32,6 +32,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const fontVars = `${anton.variable} ${bebas.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`;
 
+  const orgJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: SITE.name,
+    description: SITE.description,
+    email: SITE.email,
+    telephone: SITE.phones.map((p) => p.value),
+    location: { "@type": "Place", name: SITE.location },
+  };
+
   return (
     <html lang="en">
       <body className={fontVars}>
@@ -40,6 +50,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Nav />
         <main id="top">{children}</main>
         <Footer />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        />
       </body>
     </html>
   );
